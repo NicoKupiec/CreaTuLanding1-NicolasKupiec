@@ -1,12 +1,14 @@
+import { useState } from "react";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
-import "./App.css";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState(""); // Estado de búsqueda
+
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer mensaje="¡Bienvenido a nuestra tienda de ropa. Proximamente incluiremos productos!" />
+      <NavBar onSearch={setSearchTerm} />
+      <ItemListContainer mensaje="¡Bienvenido a nuestra tienda de ropa!" searchTerm={searchTerm} />
     </div>
   );
 }
